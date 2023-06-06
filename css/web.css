@@ -1,0 +1,51 @@
+:root{
+    --color1: #23180d;
+    --color2: #f7a64a;
+}
+
+
+.color1{
+    color: var(--color1);
+}
+
+.color2{
+    color: var(--color2);
+}
+
+
+body{
+    background-color: #2d2013;
+}
+
+nav {
+    background-color: var(--color1);
+}
+
+nav .navbar-brand{
+    color: var(--color2);
+}
+
+nav .navbar-nav .nav-item .nav-link{
+    color: var(--color2);
+}
+
+.descripcion img {
+    border-radius: 19% 81% 59% 41% / 44% 52% 48% 56%;
+    box-shadow: 17px 14px 33px 4px rgba(0, 0, 0, 0.5);
+    transition: all .5s ease-in-out;
+}
+
+.descripcion img:hover {
+    border-radius: 10px;
+}
+
+main .card{
+    background-color: var(--color2);
+}
+
+main .card label{
+    color: var(--color1);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
