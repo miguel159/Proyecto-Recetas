@@ -108,7 +108,47 @@ function iniciarApp() {
       <img class="img-fluid" src="${strMealThumb}" alt="receta ${strMeal}">
       <h3 class="my-3"> Instructions</h3>
       <p> ${strInstructions} </p>
+      <h3 class="my-3"> Measure - Ingredient </h3>
         `;
+
+    const listGroup = document.createElement("UL");
+    listGroup.classList.add("list-group");
+
+    for (let i = 1; i <= 20; i++) {
+      // console.log(receta[`strIngredient${i}`]);
+      if (receta[`strIngredient${i}`]) {
+        const ingrediente = receta[`strIngredient${i}`];
+        const cantidad = receta[`strMeasure${i}`];
+
+        const ingredienteLi = document.createElement("LI");
+        ingredienteLi.classList.add("list-group-item");
+        ingredienteLi.textContent = `${cantidad} - ${ingrediente}`;
+
+        listGroup.appendChild(ingredienteLi);
+        // console.log(ingredienteLi);
+      }
+    }
+
+    modalBody.appendChild(listGroup);
+
+    // BOTONES FOOTER
+    const modalFooter = document.querySelector(".modal-footer");
+    limpiarHTML(modalFooter);
+
+    const btnFavorito = document.createElement("BUTTON");
+    btnFavorito.classList.add("btn", "btn-danger", "col");
+    btnFavorito.textContent = "Guardar Favoritos";
+
+    const btnCerrarModal = document.createElement("BUTTON");
+    btnCerrarModal.classList.add("btn", "btn-secondary", "col");
+    btnCerrarModal.textContent = "Cerrar";
+    btnCerrarModal.onclick = function () {
+      modal.hide();
+    };
+
+    modalFooter.appendChild(btnFavorito);
+    modalFooter.appendChild(btnCerrarModal);
+    // BOTONES FOOTER
 
     modal.show();
   }
