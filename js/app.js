@@ -138,6 +138,17 @@ function iniciarApp() {
     const btnFavorito = document.createElement("BUTTON");
     btnFavorito.classList.add("btn", "btn-danger", "col");
     btnFavorito.textContent = "Guardar Favoritos";
+    btnFavorito.onclick = function () {
+      // console.log(existeStorage(idMeal));
+      if (existeStorage(idMeal)) {
+        return;
+      }
+      agregarFavorito({
+        id: idMeal,
+        title: strMeal,
+        img: strMealThumb,
+      });
+    };
 
     const btnCerrarModal = document.createElement("BUTTON");
     btnCerrarModal.classList.add("btn", "btn-secondary", "col");
@@ -151,6 +162,18 @@ function iniciarApp() {
     // BOTONES FOOTER
 
     modal.show();
+  }
+
+  function agregarFavorito(receta) {
+    // console.log(receta);
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? [];
+    localStorage.setItem("favoritos", JSON.stringify([...favoritos, receta]));
+    // console.log(favoritos);
+  }
+
+  function existeStorage(id) {
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) ?? [];
+    return favoritos.some((favorito) => favorito.id === id);
   }
 
   function limpiarHTML(selector) {
