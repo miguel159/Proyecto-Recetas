@@ -65,7 +65,7 @@ function iniciarApp() {
 
       const recetaImagen = document.createElement("IMG");
       recetaImagen.classList.add("card-img-top");
-      recetaImagen.alt = `Imagen de la receta ${strMeal ?? receta.titulo}`;
+      recetaImagen.alt = `Imagen de la receta ${strMeal ?? receta.title}`;
       recetaImagen.src = strMealThumb ?? receta.img;
 
       const recetaCardBody = document.createElement("DIV");
@@ -73,7 +73,7 @@ function iniciarApp() {
 
       const recetaHeading = document.createElement("H3");
       recetaHeading.classList.add("card-title", "mb-3", "text-center");
-      recetaHeading.textContent = strMeal ?? receta.titulo;
+      recetaHeading.textContent = strMeal ?? receta.title;
 
       const recetaButton = document.createElement("BUTTON");
       recetaButton.classList.add("btn", "btn-danger", "w-100");
